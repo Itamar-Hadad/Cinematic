@@ -19,6 +19,7 @@ cinema_asan
 
 # PDFs / submission docs
 *.pdf
+!Part2/חלק 2 -קורס תכנות מונחה עצמים C.pdf
 *.docx
 
 # Generated visual docs (not part of the submission)
