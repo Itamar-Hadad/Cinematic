@@ -8,9 +8,9 @@ private:
     int clubPoints;
 
 public:
-    Customer(const char* name, int id, int clubPoints = 0, int visitCount = 0);
-    Customer(const Customer& other);
-    Customer& operator=(const Customer& other);
+    Customer(const std::string& name, int id, int clubPoints = 0, int visitCount = 0);
+    Customer(const Customer& other) = delete;
+    Customer& operator=(const Customer& other) = delete;
 
     int getClubPoints() const;
     void setClubPoints(int p);

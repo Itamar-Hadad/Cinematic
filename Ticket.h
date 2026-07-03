@@ -1,26 +1,28 @@
 #ifndef TICKET_H
 #define TICKET_H
 
-#include "Movie.h"
+#include "Hall.h"
 
 class Ticket {
 private:
-    const Movie& movieRef;
-    bool is3D;
+    const Hall& hallRef;
+    int         seatNumber;
 
     static const double BASE_PRICE;
     static const double THREE_D_SURCHARGE;
 
 public:
-    Ticket(const Movie& movie, bool is3D);
+    Ticket(const Hall& hall, int seatNumber);
     Ticket(const Ticket& other);
     Ticket& operator=(const Ticket& other) = delete;
-    virtual ~Ticket();
+    virtual ~Ticket() = default;
 
-    const Movie& getMovie() const;
-    bool getIs3D() const;
+    const Movie& getMovie()      const;
+    const Hall&  getHall()       const;
+    int          getHallNumber() const;
+    int          getSeatNumber() const;
 
-    void setIs3D(bool flag);
+    bool isSeatFree() const;
 
     virtual double calcFinalPrice() const;
 

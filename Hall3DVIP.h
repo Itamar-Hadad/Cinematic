@@ -6,10 +6,10 @@
 
 class Hall3DVIP : public VIPHall, public Hall3D {
 public:
-    Hall3DVIP(int hallNumber, Movie& currentMovie, int waitersCount, int glassesCount);
-    Hall3DVIP(const Hall3DVIP& other);
+    Hall3DVIP(int hallNumber, const Movie& currentMovie, int waitersCount, int glassesCount);
+    Hall3DVIP(const Hall3DVIP& other) = delete;
     Hall3DVIP& operator=(const Hall3DVIP& other) = delete;
-    ~Hall3DVIP() override;
+    ~Hall3DVIP() override = default;
 
     void printHall() const override;
 };

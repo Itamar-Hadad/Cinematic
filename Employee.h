@@ -12,10 +12,10 @@ private:
     static const double PROMOTION_PERCENTAGE;
 
 public:
-    Employee(const char* name, int id, const Date& birthDate, double salary);
-    Employee(const Employee& other);
-    Employee& operator=(const Employee& other);
-    ~Employee() override;
+    Employee(const std::string& name, int id, const Date& birthDate, double salary);
+    Employee(const Employee& other) = delete;
+    Employee& operator=(const Employee& other) = delete;
+    ~Employee() override = default;
 
     const Date& getBirthDate() const;
     double getSalary() const;

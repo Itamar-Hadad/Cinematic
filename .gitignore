@@ -1,0 +1,24 @@
+# Documentation / notes
+*.md
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+
+# Build artifacts
+*.o
+*.obj
+*.out
+*.exe
+*.dSYM/
+cinema
+cinema_asan
+
+# PDFs / submission docs
+*.pdf
+*.docx
+
+# Generated visual docs (not part of the submission)
+CHANGES_LOG.html

@@ -2,25 +2,19 @@
 #define GUEST_H
 
 #include "Person.h"
+#include <vector>
 
 class Ticket;
 
 class Guest : public Person {
-public:
-    static const int INITIAL_TICKETS_CAPACITY = 4;
-
 private:
     int visitCount;
-    Ticket** tickets;
-    int numTickets;
-    int ticketsCapacity;
-
-    void resizeTickets();
+    std::vector<Ticket*> tickets;
 
 public:
-    Guest(const char* name, int id, int visitCount = 0);
-    Guest(const Guest& other);
-    Guest& operator=(const Guest& other);
+    Guest(const std::string& name, int id, int visitCount = 0);
+    Guest(const Guest& other) = delete;
+    Guest& operator=(const Guest& other) = delete;
     virtual ~Guest();
 
     int getVisitCount() const;

@@ -2,27 +2,29 @@
 #define MOVIE_H
 
 #include <iostream>
+#include <string>
 #include "Date.h"
 
 class Movie {
 private:
-    char* title;
+    std::string title;
     Date premiereDate;
     int lengthMinutes;
     bool is3D;
 
 public:
-    Movie(const char* title, const Date& premiereDate, int lengthMinutes, bool is3D);
-    Movie(const Movie& other);
-    Movie& operator=(const Movie& other);
-    ~Movie();
+    Movie(const std::string& title, const Date& premiereDate, int lengthMinutes, bool is3D);
+    Movie(const Movie& other)            = default;
+    Movie(Movie&& other) noexcept        = default;
+    Movie& operator=(const Movie& other) = default;
+    ~Movie()                             = default;
 
-    const char* getTitle() const;
+    const std::string& getTitle() const;
     const Date& getPremiereDate() const;
     int getLengthMinutes() const;
     bool getIs3D() const;
 
-    void setTitle(const char* newTitle);
+    void setTitle(const std::string& newTitle);
     void setLengthMinutes(int minutes);
     void setIs3D(bool flag);
 

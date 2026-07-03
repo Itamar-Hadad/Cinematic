@@ -8,10 +8,10 @@ private:
     int waitersCount;
 
 public:
-    VIPHall(int hallNumber, Movie& currentMovie, int waitersCount);
-    VIPHall(const VIPHall& other);
+    VIPHall(int hallNumber, const Movie& currentMovie, int waitersCount);
+    VIPHall(const VIPHall& other) = delete;
     VIPHall& operator=(const VIPHall& other) = delete;
-    ~VIPHall() override;
+    ~VIPHall() override = default;
 
     int getWaitersCount() const;
     void setWaitersCount(int c);

@@ -10,13 +10,13 @@ public:
 private:
     int hallNumber;
     bool seats[NUM_SEATS];
-    Movie& currentMovie;
+    const Movie& currentMovie;
 
 public:
-    Hall(int hallNumber, Movie& currentMovie);
-    Hall(const Hall& other);
+    Hall(int hallNumber, const Movie& currentMovie);
+    Hall(const Hall& other) = delete;
     Hall& operator=(const Hall& other) = delete;
-    virtual ~Hall();
+    virtual ~Hall() = default;
 
     int getHallNumber() const;
     const Movie& getCurrentMovie() const;
@@ -30,6 +30,10 @@ public:
 
     bool operator!() const;
 
+    virtual bool isHall3D()          const;
+    virtual int  getGlassesCount()   const;
+    virtual void useGlass();
+    virtual void addGlasses(int amount);
     virtual void printHall() const;
 };
 
