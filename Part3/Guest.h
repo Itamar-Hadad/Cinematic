@@ -15,16 +15,18 @@ public:
     Guest(const std::string& name, int id, int visitCount = 0);
     Guest(const Guest& other) = delete;
     Guest& operator=(const Guest& other) = delete;
+    Guest(Guest&& other) = delete;
+    Guest& operator=(Guest&& other) = delete;
     virtual ~Guest();
 
     int getVisitCount() const;
     int getNumTickets() const;
     const Ticket* getTicket(int index) const;
 
-    void setVisitCount(int v);
+    void setVisitCount(int newVisitCount);
     void incrementVisitCount();
 
-    void addTicket(Ticket* t);
+    void addTicket(Ticket* ticket);
 
     void printDetails() const override;
 };

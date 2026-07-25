@@ -17,6 +17,7 @@ public:
     Movie(const Movie& other)            = default;
     Movie(Movie&& other) noexcept        = default;
     Movie& operator=(const Movie& other) = default;
+    Movie& operator=(Movie&& other) noexcept = default;
     ~Movie()                             = default;
 
     const std::string& getTitle() const;
@@ -28,7 +29,7 @@ public:
     void setLengthMinutes(int minutes);
     void setIs3D(bool flag);
 
-    friend std::ostream& operator<<(std::ostream& os, const Movie& m);
+    friend std::ostream& operator<<(std::ostream& os, const Movie& movie);
 };
 
 #endif

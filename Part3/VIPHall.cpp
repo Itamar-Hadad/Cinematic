@@ -4,8 +4,15 @@
 VIPHall::VIPHall(int hallNumber, const Movie& currentMovie, int waitersCount)
     : Hall(hallNumber, currentMovie), waitersCount(waitersCount) {}
 
-int  VIPHall::getWaitersCount() const  { return waitersCount; }
-void VIPHall::setWaitersCount(int c)   { waitersCount = c;    }
+int VIPHall::getWaitersCount() const
+{
+    return waitersCount;
+}
+
+void VIPHall::setWaitersCount(int newWaitersCount)
+{
+    waitersCount = newWaitersCount;
+}
 
 void VIPHall::printHall() const {
     Hall::printHall();

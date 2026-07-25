@@ -14,7 +14,7 @@ public:
     ~VIPHall() override = default;
 
     int getWaitersCount() const;
-    void setWaitersCount(int c);
+    void setWaitersCount(int newWaitersCount);
 
     void printHall() const override;
 };

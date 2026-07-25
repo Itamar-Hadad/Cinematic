@@ -17,7 +17,7 @@ public:
     ~VIPTicket() override = default;
 
     bool getIncludesMeal() const;
-    void setIncludesMeal(bool m);
+    void setIncludesMeal(bool newIncludesMeal);
 
     double calcFinalPrice() const override;
 };

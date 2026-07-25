@@ -4,12 +4,30 @@
 Hall3D::Hall3D(int hallNumber, const Movie& currentMovie, int glassesCount)
     : Hall(hallNumber, currentMovie), glassesCount(glassesCount) {}
 
-int  Hall3D::getGlassesCount() const  { return glassesCount; }
-void Hall3D::setGlassesCount(int c)   { glassesCount = c;    }
-void Hall3D::addGlasses(int amount)   { glassesCount += amount; }
-void Hall3D::useGlass()               { --glassesCount;         }
+int Hall3D::getGlassesCount() const
+{
+    return glassesCount;
+}
 
-bool Hall3D::isHall3D() const { return true; }
+void Hall3D::setGlassesCount(int newGlassesCount)
+{
+    glassesCount = newGlassesCount;
+}
+
+void Hall3D::addGlasses(int amount)
+{
+    glassesCount += amount;
+}
+
+void Hall3D::useGlass()
+{
+    --glassesCount;
+}
+
+bool Hall3D::isHall3D() const
+{
+    return true;
+}
 
 void Hall3D::printHall() const {
     Hall::printHall();

@@ -14,7 +14,7 @@ public:
     ~Hall3D() override = default;
 
     int  getGlassesCount() const override;
-    void setGlassesCount(int c);
+    void setGlassesCount(int newGlassesCount);
     void addGlasses(int amount) override;
     void useGlass() override;
 

@@ -9,8 +9,15 @@ VIPTicket::VIPTicket(const Hall& hall, int seatNumber, bool includesMeal)
 VIPTicket::VIPTicket(const VIPTicket& other)
     : Ticket(other), includesMeal(other.includesMeal) {}
 
-bool VIPTicket::getIncludesMeal() const  { return includesMeal; }
-void VIPTicket::setIncludesMeal(bool m)  { includesMeal = m;    }
+bool VIPTicket::getIncludesMeal() const
+{
+    return includesMeal;
+}
+
+void VIPTicket::setIncludesMeal(bool newIncludesMeal)
+{
+    includesMeal = newIncludesMeal;
+}
 
 double VIPTicket::calcFinalPrice() const {
     return Ticket::calcFinalPrice() + VIP_SURCHARGE + (includesMeal ? MEAL_PRICE : 0.0);

@@ -13,8 +13,8 @@ public:
     Customer& operator=(const Customer& other) = delete;
 
     int getClubPoints() const;
-    void setClubPoints(int p);
-    void addClubPoints(int p);
+    void setClubPoints(int points);
+    void addClubPoints(int points);
 
     void printDetails() const override;
 };

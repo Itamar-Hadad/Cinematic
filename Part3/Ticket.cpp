@@ -15,10 +15,25 @@ Ticket::Ticket(const Hall& hall, int seatNumber)
 Ticket::Ticket(const Ticket& other)
     : hallRef(other.hallRef), seatNumber(other.seatNumber) {}
 
-const Movie& Ticket::getMovie()      const { return hallRef.getCurrentMovie(); }
-const Hall&  Ticket::getHall()       const { return hallRef;                   }
-int          Ticket::getHallNumber() const { return hallRef.getHallNumber();   }
-int          Ticket::getSeatNumber() const { return seatNumber;                }
+const Movie& Ticket::getMovie() const
+{
+    return hallRef.getCurrentMovie();
+}
+
+const Hall& Ticket::getHall() const
+{
+    return hallRef;
+}
+
+int Ticket::getHallNumber() const
+{
+    return hallRef.getHallNumber();
+}
+
+int Ticket::getSeatNumber() const
+{
+    return seatNumber;
+}
 
 bool Ticket::isSeatFree() const {
     return !hallRef.isSeatTaken(seatNumber - 1);

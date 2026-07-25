@@ -11,19 +11,33 @@ Guest::~Guest() {
     for ( ; itr != itrEnd ; ++itr ) delete *itr;
 }
 
-int  Guest::getVisitCount() const { return visitCount;                        }
-int  Guest::getNumTickets() const { return static_cast<int>(tickets.size()); }
+int Guest::getVisitCount() const
+{
+    return visitCount;
+}
 
-void Guest::setVisitCount(int v)  { visitCount = v; }
-void Guest::incrementVisitCount() { ++visitCount;   }
+int Guest::getNumTickets() const
+{
+    return static_cast<int>(tickets.size());
+}
+
+void Guest::setVisitCount(int newVisitCount)
+{
+    visitCount = newVisitCount;
+}
+
+void Guest::incrementVisitCount()
+{
+    ++visitCount;
+}
 
 const Ticket* Guest::getTicket(int index) const {
     if (index < 0 || index >= (int)tickets.size()) return nullptr;
     return tickets[index];
 }
 
-void Guest::addTicket(Ticket* t) {
-    tickets.push_back(t);
+void Guest::addTicket(Ticket* ticket) {
+    tickets.push_back(ticket);
 }
 
 void Guest::printDetails() const {

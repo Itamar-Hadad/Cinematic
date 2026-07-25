@@ -502,8 +502,8 @@ int main() {
                 default:
                     std::cout << "Invalid choice. Please pick 0-12." << std::endl;
             }
-        } catch (const std::exception& e) {
-            std::cerr << "Error: " << e.what() << std::endl;
+        } catch (const std::exception& ex) {
+            std::cerr << "Error: " << ex.what() << std::endl;
         } catch (...) {
             std::cerr << "An unknown error occurred." << std::endl;
         }

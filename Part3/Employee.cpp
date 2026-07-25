@@ -6,10 +6,20 @@ const double Employee::PROMOTION_PERCENTAGE = 0.10;
 Employee::Employee(const std::string& name, int id, const Date& birthDate, double salary)
     : Person(name, id), birthDate(birthDate), salary(salary) {}
 
-const Date& Employee::getBirthDate() const { return birthDate; }
-double      Employee::getSalary()    const { return salary;    }
+const Date& Employee::getBirthDate() const
+{
+    return birthDate;
+}
 
-void Employee::setSalary(double newSalary) { salary = newSalary; }
+double Employee::getSalary() const
+{
+    return salary;
+}
+
+void Employee::setSalary(double newSalary)
+{
+    salary = newSalary;
+}
 
 Employee& Employee::operator++() {
     salary *= (1.0 + PROMOTION_PERCENTAGE);

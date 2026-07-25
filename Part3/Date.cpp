@@ -1,13 +1,13 @@
 #include "Date.h"
 #include <iomanip>
 
-bool Date::isValidDate(int d, int m, int y) {
-    if (y < 1 || m < 1 || m > 12 || d < 1)
+bool Date::isValidDate(int day, int month, int year) {
+    if (year < 1 || month < 1 || month > 12 || day < 1)
         return false;
     int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0))
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
         daysInMonth[1] = 29;
-    return d <= daysInMonth[m - 1];
+    return day <= daysInMonth[month - 1];
 }
 
 Date::Date(int day, int month, int year) {
@@ -22,30 +22,41 @@ Date::Date(int day, int month, int year) {
     }
 }
 
-int Date::getDay()   const { return day;   }
-int Date::getMonth() const { return month; }
-int Date::getYear()  const { return year;  }
-
-void Date::setDay(int d) {
-    if (isValidDate(d, month, year)) day = d;
+int Date::getDay() const
+{
+    return day;
 }
 
-void Date::setMonth(int m) {
-    if (isValidDate(day, m, year)) month = m;
+int Date::getMonth() const
+{
+    return month;
 }
 
-void Date::setYear(int y) {
-    if (isValidDate(day, month, y)) year = y;
+int Date::getYear() const
+{
+    return year;
+}
+
+void Date::setDay(int newDay) {
+    if (isValidDate(newDay, month, year)) day = newDay;
+}
+
+void Date::setMonth(int newMonth) {
+    if (isValidDate(day, newMonth, year)) month = newMonth;
+}
+
+void Date::setYear(int newYear) {
+    if (isValidDate(day, month, newYear)) year = newYear;
 }
 
 bool Date::operator==(const Date& other) const {
     return day == other.day && month == other.month && year == other.year;
 }
 
-std::ostream& operator<<(std::ostream& os, const Date& d) {
+std::ostream& operator<<(std::ostream& os, const Date& date) {
     os << std::setfill('0')
-       << std::setw(2) << d.day   << '/'
-       << std::setw(2) << d.month << '/'
-       << std::setw(4) << d.year;
+       << std::setw(2) << date.day   << '/'
+       << std::setw(2) << date.month << '/'
+       << std::setw(4) << date.year;
     return os;
 }

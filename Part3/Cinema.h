@@ -2,6 +2,7 @@
 #define CINEMA_H
 
 #include <vector>
+#include <memory>
 #include "Employee.h"
 #include "Guest.h"
 #include "Hall.h"
@@ -11,11 +12,11 @@
 
 class Cinema {
 private:
-    std::vector<Employee*> employees;
-    std::vector<Guest*>    guests;
-    std::vector<Hall*>     halls;
-    std::vector<Movie*>    movies;
-    LinkedList<Shift*>     shifts;
+    std::vector<Employee*>               employees;
+    std::vector<Guest*>                  guests;
+    std::vector<Hall*>                   halls;
+    std::vector<std::unique_ptr<Movie>>  movies;
+    LinkedList<Shift*>                   shifts;
 
     Cinema() = default;
 
@@ -24,6 +25,8 @@ public:
 
     Cinema(const Cinema& other) = delete;
     Cinema& operator=(const Cinema& other) = delete;
+    Cinema(Cinema&& other) = delete;
+    Cinema& operator=(Cinema&& other) = delete;
     ~Cinema();
 
     int getNumEmployees() const;
@@ -32,24 +35,24 @@ public:
     int getNumMovies()    const;
     int getNumShifts()    const;
 
-    const Employee* getEmployeeByIndex(int i) const;
-    Employee*       getEmployeeByIndex(int i);
-    const Guest*    getGuestByIndex(int i)    const;
-    Guest*          getGuestByIndex(int i);
-    const Hall*     getHallByIndex(int i)     const;
-    Hall*           getHallByIndex(int i);
-    const Movie*    getMovieByIndex(int i)    const;
-    Movie*          getMovieByIndex(int i);
-    const Shift*    getShiftByIndex(int i)    const;
+    const Employee* getEmployeeByIndex(int index) const;
+    Employee*       getEmployeeByIndex(int index);
+    const Guest*    getGuestByIndex(int index)    const;
+    Guest*          getGuestByIndex(int index);
+    const Hall*     getHallByIndex(int index)     const;
+    Hall*           getHallByIndex(int index);
+    const Movie*    getMovieByIndex(int index)    const;
+    Movie*          getMovieByIndex(int index);
+    const Shift*    getShiftByIndex(int index)    const;
 
     Guest*    findGuestById(int id);
     Employee* findEmployeeById(int id);
 
-    Cinema& operator+=(Employee* e);
-    Cinema& operator+=(Guest* g);
-    Cinema& operator+=(Hall* h);
-    Cinema& operator+=(Movie* m);
-    Cinema& operator+=(Shift* s);
+    Cinema& operator+=(Employee* employee);
+    Cinema& operator+=(Guest* guest);
+    Cinema& operator+=(Hall* hall);
+    Cinema& operator+=(Movie* movie);
+    Cinema& operator+=(Shift* shift);
 
     Cinema& operator-=(int guestId);
 

@@ -9,7 +9,7 @@ private:
     int month;
     int year;
 
-    static bool isValidDate(int d, int m, int y);
+    static bool isValidDate(int day, int month, int year);
 
 public:
     Date(int day = 1, int month = 1, int year = 2000);
@@ -18,13 +18,13 @@ public:
     int getMonth() const;
     int getYear() const;
 
-    void setDay(int d);
-    void setMonth(int m);
-    void setYear(int y);
+    void setDay(int newDay);
+    void setMonth(int newMonth);
+    void setYear(int newYear);
 
     bool operator==(const Date& other) const;
 
-    friend std::ostream& operator<<(std::ostream& os, const Date& d);
+    friend std::ostream& operator<<(std::ostream& os, const Date& date);
 };
 
 #endif
